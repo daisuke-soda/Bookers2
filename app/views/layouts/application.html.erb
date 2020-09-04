@@ -51,7 +51,9 @@
 
       <main>
         <div class="container">
+          <% if user_signed_in? %>
           <%= render 'search/search_form' %>
+        <% end %>
       <%= yield %>
 
       <footer>
