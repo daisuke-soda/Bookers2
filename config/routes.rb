@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'home/about' => 'home#about'
+  get 'search' => 'search#search', as: 'search'
   root to: "home#index"
   resources :users,only: [:show,:index,:edit,:update,:create] do
     member do
