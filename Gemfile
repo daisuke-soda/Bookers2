@@ -67,3 +67,4 @@ gem "refile-mini_magick"
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-doc'
+gem 'jp_prefecture'
