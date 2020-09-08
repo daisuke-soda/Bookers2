@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update]
+
   def index
     @users = User.all
     @book = Book.new
@@ -11,6 +12,15 @@ class UsersController < ApplicationController
     @book = Book.new
   	@user = User.find(params[:id])
     @books = @user.books
+  end
+
+  def create
+    if @user.save
+      NotificationMailer.send_confirm_to_user(@user).deliver
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def edit
